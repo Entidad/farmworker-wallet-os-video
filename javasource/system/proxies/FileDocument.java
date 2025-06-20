@@ -75,6 +75,9 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType())) {
 			return system.proxies.Image.initialize(context, mendixObject);
 		}
+		if (com.mendix.core.Core.isSubClassOf("Encryption.PGPCertificate", mendixObject.getType())) {
+			return encryption.proxies.PGPCertificate.initialize(context, mendixObject);
+		}
 		if (com.mendix.core.Core.isSubClassOf("System.SynchronizationErrorFile", mendixObject.getType())) {
 			return system.proxies.SynchronizationErrorFile.initialize(context, mendixObject);
 		}
