@@ -3,7 +3,7 @@ This Mendix app module adds high-quality  video (WebRTC) capability to your Mend
 The module includes a REST API connector including Video Room callback (webhook) support to synchronize Room and Participant status events with the Mendix database. 
 Two Mendix pluggable widgets are included with working demo implementations for Responsive and Native applications.
 
-![Videl call invitation](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Video_call_invite.png) ![Video call incoming](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Video_call_incoming.png) ![Video call](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Twilio_Video_react-native.png)
+![Video call peer](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Video_call_peer.png) ![Video call outbound](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Video_call_outbound.png) ![Video call inbound](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Video_call_inbound.png) ![Video call](https://github.com/Entidad/farmworker-wallet-os-video/blob/main/docs/Twilio_Video_react-native.png)
 
 ## Typical usage scenario
 Connect your Mendix application with Twilio client SDKs (REST API, iOS, and Android) to your [Twilio Video](https://www.twilio.com/login) service subscription to provide peer-to-peer or multi-party group Video chat. 
