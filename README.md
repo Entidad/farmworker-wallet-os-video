@@ -32,7 +32,8 @@ The adaptable app module includes:
 
 ## Configuration
 1. Configure the Twilio Video service from the [Twilio Console](https://console.twilio.com/)
-   1. Optionally, configure a default [Status Callback URL](https://console.twilio.com/us1/develop/video/manage/room-settings) endpoint to enable webhook notifications. NOTE if running locally, you will need an HTTP relay service (e.g https://hookdeck.com/)
+   1. Optionally, configure a default [Status Callback URL](https://console.twilio.com/us1/develop/video/manage/room-settings) endpoint to enable webhook notifications: `https://<YOUR_DOMAIN_NAME>/rest/twilio/video/room-events`
+   2. NOTE if running locally, you will need an HTTP relay service (e.g https://hookdeck.com/)
 2. Configure twilioCredential to store Twilio API secrets securely in Mendix database
    1. Login as `demo_administrator` user to access the responsive Administration demo application: `TwilioVideo/_Demo/Responsive/Administration/Pages/TwilioVideoChat_Config`
    2. Save your Twilio API screts
