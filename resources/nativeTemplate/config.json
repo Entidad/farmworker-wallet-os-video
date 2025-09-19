@@ -78,6 +78,26 @@
             "purpose": "To use that feature, the app needs access to your location.",
             "platform": "ios",
             "required": true
+        },
+        {
+            "title": "Record Audio",
+            "name": "android.permission.RECORD_AUDIO",
+            "platform": "android",
+            "required": false
+        },
+        {
+            "title": "Microphone Usage",
+            "name": "NSMicrophoneUsageDescription",
+            "purpose": "To use that feature, the app needs access to your microphone.",
+            "platform": "ios",
+            "required": false
+        },
+        {
+            "title": "Photo Library Usage",
+            "name": "NSPhotoLibraryUsageDescription",
+            "purpose": "To use that feature, the app needs access to your photo library.",
+            "platform": "ios",
+            "required": false
         }
     ],
     "capabilities": {
@@ -123,7 +143,7 @@
         }
     },
     "appVersion": "1.0.0",
-    "buildNumber": 2,
+    "buildNumber": 4,
     "runtimeUrl": "http://localhost:8085",
     "hermesEnabled": true,
     "cookieEncryptionEnabled": false
