@@ -10,14 +10,14 @@
 package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
-import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
+import rest_responses.RESTResponseProvider;
 
 /**
  * The reuested resource has been permanently moved to the URL specified in the Location header
  */
-public class Create_308_PERMANENT_REDIRECT extends CustomJavaAction<IMendixObject>
+public class Create_308_PERMANENT_REDIRECT extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -42,7 +42,7 @@ public class Create_308_PERMANENT_REDIRECT extends CustomJavaAction<IMendixObjec
 	{
 		// BEGIN USER CODE
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 308, "", "Permanent Redirect");
+		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse, 308, "", "Permanent Redirect");
 		
 		if( Location != null && "" != Location) {
 			rp.addHttpHeader("Location", this.Location);

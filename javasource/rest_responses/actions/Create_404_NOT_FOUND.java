@@ -12,16 +12,16 @@ package rest_responses.actions;
 import javax.servlet.http.HttpServletRequest;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The URI requested is invalid or the resource requested does not exists.
  */
-public class Create_404_NOT_FOUND extends CustomJavaAction<IMendixObject>
+public class Create_404_NOT_FOUND extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -50,7 +50,7 @@ public class Create_404_NOT_FOUND extends CustomJavaAction<IMendixObject>
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Not Found", 
 				servlet.getMethod() + " " + servlet.getPathInfo(), 404, null, null, LogMessageDetails);
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 404, emp.getJSONResponseMessage(), "Not Found");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 404, emp.getJSONResponseMessage(), "Not Found");
 		return rp.getResponse();
 		// END USER CODE
 	}

@@ -12,15 +12,15 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The request could not be understood by the server due to malformed syntax.
  */
-public class Create_500_INTERNAL_SERVER_ERROR extends CustomJavaAction<IMendixObject>
+public class Create_500_INTERNAL_SERVER_ERROR extends UserAction<IMendixObject>
 {
 	private final java.lang.String Content;
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
@@ -50,7 +50,7 @@ public class Create_500_INTERNAL_SERVER_ERROR extends CustomJavaAction<IMendixOb
 		
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Internal Server Error",  this.Content, 500, null, null, LogMessage);
 
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 500, emp.getJSONResponseMessage(), "Internal Server Error");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 500, emp.getJSONResponseMessage(), "Internal Server Error");
 	
 		Core.getLogger("ProblemJSONModule").error(emp.getJSONResponseMessage());
 		

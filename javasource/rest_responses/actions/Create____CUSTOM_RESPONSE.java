@@ -10,14 +10,15 @@
 package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.RESTResponseProvider;
+import system.proxies.HttpResponse;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * This action provides the option to set any HTTP status that is not covered by the other actions.
  */
-public class Create____CUSTOM_RESPONSE extends CustomJavaAction<IMendixObject>
+public class Create____CUSTOM_RESPONSE extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -51,7 +52,7 @@ public class Create____CUSTOM_RESPONSE extends CustomJavaAction<IMendixObject>
 		if(this.Code>=100 && this.Code <=599) {
 
 			String contentType = this.ContentType;
-			RESTResponseProvider rp = new RESTResponseProvider(this.context(), __HTTPResponse, this.Code.intValue(), this.Content,  getReason(this.Code.intValue()));
+			RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse, this.Code.intValue(), this.Content,  getReason(this.Code.intValue()));
 			
 			if(contentType.isEmpty()) {
 				contentType = "application/json";

@@ -12,15 +12,15 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The request could not be understood by the server due to malformed syntax.
  */
-public class Create_400_BAD_REQUEST extends CustomJavaAction<IMendixObject>
+public class Create_400_BAD_REQUEST extends UserAction<IMendixObject>
 {
 	private final java.lang.String Title;
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
@@ -72,7 +72,7 @@ public class Create_400_BAD_REQUEST extends CustomJavaAction<IMendixObject>
 		
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), title, Detail, 400, TypeURI, ValidationErrors, LogMessageDetails);
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 400, emp.getJSONResponseMessage(), "Bad Request");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 400, emp.getJSONResponseMessage(), "Bad Request");
 		
 		return rp.getResponse();
 		// END USER CODE

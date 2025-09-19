@@ -11,13 +11,13 @@ package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.RESTResponseProvider;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The request has been accepted for further processing, which will be completed sometime later.
  */
-public class Create_202_ACCEPTED extends CustomJavaAction<IMendixObject>
+public class Create_202_ACCEPTED extends UserAction<IMendixObject>
 {
 	private final java.lang.String Content;
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
@@ -41,7 +41,7 @@ public class Create_202_ACCEPTED extends CustomJavaAction<IMendixObject>
 	public IMendixObject executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(),HTTPResponse.getMendixObject(), 202, this.Content, "Accepted");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(),HTTPResponse, 202, this.Content, "Accepted");
 		return rp.getResponse();
 		// END USER CODE
 	}

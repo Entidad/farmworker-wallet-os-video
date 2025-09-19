@@ -12,15 +12,15 @@ package rest_responses.actions;
 import javax.servlet.http.HttpServletRequest;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * Returned when a request cannot be served due to the application its rate limit having been exhausted for the resource.
  */
-public class Create_429_TOO_MANY_REQUESTS extends CustomJavaAction<IMendixObject>
+public class Create_429_TOO_MANY_REQUESTS extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -54,7 +54,7 @@ public class Create_429_TOO_MANY_REQUESTS extends CustomJavaAction<IMendixObject
 		
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Too Many Requests", servlet.getMethod() + " " + servlet.getPathInfo(), 429, null, null, LogMessageDetails);
 
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 429, emp.getJSONResponseMessage(), "Too Many Requests");
+		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse, 429, emp.getJSONResponseMessage(), "Too Many Requests");
 
 		return rp.getResponse();
 		// END USER CODE

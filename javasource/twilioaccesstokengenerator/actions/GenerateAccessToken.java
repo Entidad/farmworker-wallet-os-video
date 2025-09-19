@@ -12,12 +12,12 @@ package twilioaccesstokengenerator.actions;
 import com.twilio.jwt.accesstoken.AccessToken;
 import com.twilio.jwt.accesstoken.VideoGrant;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * See https://www.twilio.com/docs/iam/access-tokens
  */
-public class GenerateAccessToken extends CustomJavaAction<java.lang.String>
+public class GenerateAccessToken extends UserAction<java.lang.String>
 {
 	private final java.lang.String identity;
 	private final java.lang.String twilioAccountSid;

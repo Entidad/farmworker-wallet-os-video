@@ -12,17 +12,17 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * A 403 error response indicates that the client's request is formed correctly, but the REST API refuses to honor it i.e. the user does not have the necessary permissions for the resource. A 403 response is not a case of insufficient client credentials; that would be 401 (Unauthorized).
  * 
  * Authentication will not help and the request SHOULD NOT be repeated. Unlike a 401 Unauthorized response, authenticating will make no difference.
  */
-public class Create_403_FORBIDDEN extends CustomJavaAction<IMendixObject>
+public class Create_403_FORBIDDEN extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -51,7 +51,7 @@ public class Create_403_FORBIDDEN extends CustomJavaAction<IMendixObject>
 		// BEGIN USER CODE
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Forbidden", this.Detail, 403, null, null, LogMessageDetails);
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), 403, emp.getJSONResponseMessage(), "Forbidden");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 403, emp.getJSONResponseMessage(), "Forbidden");
 		
 		return rp.getResponse();
 

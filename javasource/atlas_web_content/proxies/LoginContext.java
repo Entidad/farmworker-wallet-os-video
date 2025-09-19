@@ -49,7 +49,7 @@ public class LoginContext implements com.mendix.systemwideinterfaces.core.IEntit
 		if (loginContextMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, loginContextMendixObject.getType())) {
+		if (!loginContextMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -73,15 +73,6 @@ public class LoginContext implements com.mendix.systemwideinterfaces.core.IEntit
 	{
 		com.mendix.systemwideinterfaces.core.IMendixObject mendixObject = com.mendix.core.Core.retrieveId(context, mendixIdentifier);
 		return atlas_web_content.proxies.LoginContext.initialize(context, mendixObject);
-	}
-
-	public static java.util.List<atlas_web_content.proxies.LoginContext> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
-	{
-		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
-			.execute(context)
-			.stream()
-			.map(obj -> atlas_web_content.proxies.LoginContext.initialize(context, obj))
-			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**

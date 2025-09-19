@@ -10,14 +10,14 @@
 package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
-import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
+import rest_responses.RESTResponseProvider;
 
 /**
  * A Multi-Status response conveys information about multiple resources in situations where multiple status codes might be appropriate.
  */
-public class Create_207_MULTI_STATUS extends CustomJavaAction<IMendixObject>
+public class Create_207_MULTI_STATUS extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -45,7 +45,7 @@ public class Create_207_MULTI_STATUS extends CustomJavaAction<IMendixObject>
 	{
 		// BEGIN USER CODE
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(),  207, this.Content, "MULTI-STATUS");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse,  207, this.Content, "MULTI-STATUS");
 
 		rp.addHttpHeader("Content-type", this.ContentType);
 		return rp.getResponse();

@@ -22,7 +22,8 @@ public class HttpHeader implements com.mendix.systemwideinterfaces.core.IEntityP
 	{
 		Key("Key"),
 		Value("Value"),
-		HttpHeaders("System.HttpHeaders");
+		HttpHeaders("System.HttpHeaders"),
+		HttpHeader_ConsumedODataConfiguration("System.HttpHeader_ConsumedODataConfiguration");
 
 		private final java.lang.String metaName;
 
@@ -48,7 +49,7 @@ public class HttpHeader implements com.mendix.systemwideinterfaces.core.IEntityP
 		if (httpHeaderMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, httpHeaderMendixObject.getType())) {
+		if (!httpHeaderMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -190,6 +191,53 @@ public class HttpHeader implements com.mendix.systemwideinterfaces.core.IEntityP
 			getMendixObject().setValue(context, MemberNames.HttpHeaders.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.HttpHeaders.toString(), httpheaders.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of HttpHeader_ConsumedODataConfiguration
+	 */
+	public final system.proxies.ConsumedODataConfiguration getHttpHeader_ConsumedODataConfiguration() throws com.mendix.core.CoreException
+	{
+		return getHttpHeader_ConsumedODataConfiguration(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of HttpHeader_ConsumedODataConfiguration
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final system.proxies.ConsumedODataConfiguration getHttpHeader_ConsumedODataConfiguration(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		system.proxies.ConsumedODataConfiguration result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.HttpHeader_ConsumedODataConfiguration.toString());
+		if (identifier != null) {
+			result = system.proxies.ConsumedODataConfiguration.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of HttpHeader_ConsumedODataConfiguration
+	 * @param httpheader_consumedodataconfiguration
+	 */
+	public final void setHttpHeader_ConsumedODataConfiguration(system.proxies.ConsumedODataConfiguration httpheader_consumedodataconfiguration)
+	{
+		setHttpHeader_ConsumedODataConfiguration(getContext(), httpheader_consumedodataconfiguration);
+	}
+
+	/**
+	 * Set value of HttpHeader_ConsumedODataConfiguration
+	 * @param context
+	 * @param httpheader_consumedodataconfiguration
+	 */
+	public final void setHttpHeader_ConsumedODataConfiguration(com.mendix.systemwideinterfaces.core.IContext context, system.proxies.ConsumedODataConfiguration httpheader_consumedodataconfiguration)
+	{
+		if (httpheader_consumedodataconfiguration == null) {
+			getMendixObject().setValue(context, MemberNames.HttpHeader_ConsumedODataConfiguration.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.HttpHeader_ConsumedODataConfiguration.toString(), httpheader_consumedodataconfiguration.getMendixObject().getId());
 		}
 	}
 

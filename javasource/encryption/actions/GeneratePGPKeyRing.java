@@ -41,10 +41,10 @@ import org.bouncycastle.openpgp.operator.bc.BcPGPKeyPair;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import encryption.pgp.PGPFileProcessor;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class GeneratePGPKeyRing extends CustomJavaAction<java.lang.Boolean>
+public class GeneratePGPKeyRing extends UserAction<java.lang.Boolean>
 {
 	/** @deprecated use CertPrivateKey.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

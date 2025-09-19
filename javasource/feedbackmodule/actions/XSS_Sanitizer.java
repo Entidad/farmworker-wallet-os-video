@@ -12,9 +12,9 @@ package feedbackmodule.actions;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class XSS_Sanitizer extends CustomJavaAction<java.lang.String>
+public class XSS_Sanitizer extends UserAction<java.lang.String>
 {
 	private final java.lang.String stringToSanitize;
 

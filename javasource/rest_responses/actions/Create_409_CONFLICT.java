@@ -12,10 +12,10 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The request could not be completed due to a conflict with the current state of the resource. 
@@ -23,7 +23,7 @@ import java.util.UUID;
  * 
  * The response body SHOULD include enough information for the user to recognize the source of the conflict. Ideally, the response entity would include enough information for the user or user agent to fix the problem; however, that might not be possible and is not required.
  */
-public class Create_409_CONFLICT extends CustomJavaAction<IMendixObject>
+public class Create_409_CONFLICT extends UserAction<IMendixObject>
 {
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)
@@ -52,7 +52,7 @@ public class Create_409_CONFLICT extends CustomJavaAction<IMendixObject>
 		// BEGIN USER CODE
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Conflict", this.Detail, 409, null, null, LogMessageDetails);
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), __HTTPResponse, 409, emp.getJSONResponseMessage(), "Conflict");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 409, emp.getJSONResponseMessage(), "Conflict");
 		return rp.getResponse();
 
 		// END USER CODE

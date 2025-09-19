@@ -12,15 +12,15 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * The authentication credentials are missing, or if supplied are not valid or not sufficient to access the resource.
  */
-public class Create_401_UNAUTHORIZED extends CustomJavaAction<IMendixObject>
+public class Create_401_UNAUTHORIZED extends UserAction<IMendixObject>
 {
 	private final java.lang.String WWWAuthenticate;
 	/** @deprecated use HTTPResponse.getMendixObject() instead. */
@@ -55,7 +55,7 @@ public class Create_401_UNAUTHORIZED extends CustomJavaAction<IMendixObject>
 				this.Details, status, null, null, LogMessageDetails);
 		
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse.getMendixObject(), status, emp.getJSONResponseMessage(), "Unauthorized");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, status, emp.getJSONResponseMessage(), "Unauthorized");
 		rp.addHttpHeader("WWW-Authenticate", this.WWWAuthenticate);
 		
 		return rp.getResponse();

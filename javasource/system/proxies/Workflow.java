@@ -27,6 +27,7 @@ public class Workflow implements com.mendix.systemwideinterfaces.core.IEntityPro
 		DueDate("DueDate"),
 		CanBeRestarted("CanBeRestarted"),
 		CanBeContinued("CanBeContinued"),
+		CanApplyJumpTo("CanApplyJumpTo"),
 		State("State"),
 		Reason("Reason"),
 		Workflow_WorkflowDefinition("System.Workflow_WorkflowDefinition"),
@@ -56,7 +57,7 @@ public class Workflow implements com.mendix.systemwideinterfaces.core.IEntityPro
 		if (workflowMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, workflowMendixObject.getType())) {
+		if (!workflowMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -341,6 +342,42 @@ public class Workflow implements com.mendix.systemwideinterfaces.core.IEntityPro
 	public final void setCanBeContinued(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean canbecontinued)
 	{
 		getMendixObject().setValue(context, MemberNames.CanBeContinued.toString(), canbecontinued);
+	}
+
+	/**
+	 * @return value of CanApplyJumpTo
+	 */
+	public final java.lang.Boolean getCanApplyJumpTo()
+	{
+		return getCanApplyJumpTo(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of CanApplyJumpTo
+	 */
+	public final java.lang.Boolean getCanApplyJumpTo(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Boolean) getMendixObject().getValue(context, MemberNames.CanApplyJumpTo.toString());
+	}
+
+	/**
+	 * Set value of CanApplyJumpTo
+	 * @param canapplyjumpto
+	 */
+	public final void setCanApplyJumpTo(java.lang.Boolean canapplyjumpto)
+	{
+		setCanApplyJumpTo(getContext(), canapplyjumpto);
+	}
+
+	/**
+	 * Set value of CanApplyJumpTo
+	 * @param context
+	 * @param canapplyjumpto
+	 */
+	public final void setCanApplyJumpTo(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Boolean canapplyjumpto)
+	{
+		getMendixObject().setValue(context, MemberNames.CanApplyJumpTo.toString(), canapplyjumpto);
 	}
 
 	/**
