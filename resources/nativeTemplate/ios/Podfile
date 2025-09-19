@@ -65,6 +65,9 @@ def common_pods
 # Required MendixNative dependency
   pod 'SSZipArchive'
   # REQUIRED PODS END
+
+# Add Twilio Video WebRTC pod
+  pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
 end
 
 target 'nativeTemplate' do
