@@ -1,10 +1,10 @@
 {
     "configVersion": 2,
-    "appIdentifier": "io.entidad.app.twiliovideo",
-    "appName": "TwilioVideoApp",
+    "appIdentifier": "io.entidad.app.fwosvideo",
+    "appName": "FWOS Video",
     "bundleName": {
-        "main": "TwilioVideoApp",
-        "dev": "TwilioVideoADev"
+        "main": "FWOSVideoApp",
+        "dev": "FWOSVideoAppDev"
     },
     "deviceTarget": {
         "phone": true,
@@ -123,8 +123,8 @@
         }
     },
     "appVersion": "1.0.0",
-    "buildNumber": 1,
-    "runtimeUrl": "http://localhost:8080",
+    "buildNumber": 2,
+    "runtimeUrl": "http://localhost:8085",
     "hermesEnabled": true,
     "cookieEncryptionEnabled": false
 }
