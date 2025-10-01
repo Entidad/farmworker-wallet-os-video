@@ -22,26 +22,78 @@ The adaptable app module includes:
 4. REST service to process real-time asyncchronous Video Room [status callbacks](https://www.twilio.com/docs/video/api/status-callbacks)
 
 ## Dependencies
-1. Twilio Access Token Generator v2 (app module)
-2. Encryption v10.0.6 (The module does not explicitly provide production-ready microflows to manage the `twilioCredential` configuration entity but it is highly-advised that the Mendix developer solve for encryption of the Twilio API key secret before deploying their app)
-3. Native Mobile Resources v6.1.1
-4. [Native Keep Awake](https://marketplace.mendix.com/link/component/118878) by Aiden v1.1.0 
-5. Mendix React-Native pluggable widget [mendix-react-native-twilio-video-webrtc](https://github.com/Entidad/mendix-react-native-twilio-video-webrtc/releases/tag/v0.0.15)
-6. Mendix React pluggable widget [mendix-web-twilio-video-webrtc](https://github.com/Entidad/mendix-web-twilio-video-webrtc/releases/tag/v1.0.3)
+1. [Twilio Access Token Generator v3.0.0](https://marketplace.mendix.com/link/component/242851) (by Entidad)
+2. Encryption v11.0.3 (The module does not explicitly provide production-ready microflows to manage the `twilioCredential` configuration entity but it is highly-advised that the Mendix developer solve for encryption of the Twilio API key secret before deploying their app)
+3. Native Mobile Resources v10.1.4
+4. Community Commons v11.3.0
+5. [REST Responses](https://marketplace.mendix.com/link/component/118687) by MxLabs v2.0.0
+6. [Native Keep Awake](https://marketplace.mendix.com/link/component/118878) by Aiden v2.1.0
+7. NPM package [react-native-twilio-video-webrtc](https://www.npmjs.com/package/react-native-twilio-video-webrtc) v3.1.0
+8. Mendix React-Native pluggable widget [mendix-react-native-twilio-video-webrtc](https://github.com/Entidad/mendix-react-native-twilio-video-webrtc)
+9. Mendix React pluggable widget [mendix-web-twilio-video-webrtc](https://github.com/Entidad/mendix-web-twilio-video-webrtc)
+10. Xcode 16.2
+11. Android Studio Ladybug Feature Drop | 2024.2.2
    
 ## Installation
 1. Download module and run app locally in Mendix Studio Pro. Default app is configured to run on `http://localhost:8085/`
 
 ## Configuration
 1. Configure the Twilio Video service from the [Twilio Console](https://console.twilio.com/)
-   1. Optionally, configure a default [Status Callback URL](https://console.twilio.com/us1/develop/video/manage/room-settings) endpoint to enable webhook notifications: `https://<YOUR_DOMAIN_NAME>/rest/twilio/video/room-events`
-   2. NOTE if running locally, you will need an HTTP relay service (e.g https://hookdeck.com/)
+   - Optionally, configure a default [Status Callback URL](https://console.twilio.com/us1/develop/video/manage/room-settings) endpoint to enable webhook notifications: `https://<YOUR_DOMAIN_NAME>/rest/twilio/video/room-events`
+   - NOTE if running locally, you will need an HTTP relay service (e.g https://hookdeck.com/)
 2. Configure twilioCredential to store Twilio API secrets securely in Mendix database
-   1. Login as `demo_administrator` user to access the responsive Administration demo application: `TwilioVideo/_Demo/Responsive/Administration/Pages/TwilioVideoChat_Config`
-   2. Save your Twilio API screts
-3. Run Responsive demo application
-   1. Login as `demo_user` to join a Video Room: `TwilioVideo/_Demo/Responsive/VideoRoom/Pages/VideoRoom_Web`
-4. Run Native demo application to join a Video Room: `TwilioVideo/_Demo/Native/VideoRoom/Pages/Home_Native`
+   - Login as `demo_administrator` user to access the responsive Administration demo application: `TwilioVideo/_Demo/Responsive/Administration/Pages/TwilioVideoChat_Config`
+   - Save your Twilio API screts
+3. Install npm package
+```
+npm install react-native-twilio-video-webrtc@3.1.0
+```
+4. Edit Podfile for iOS distribution
+```
+# Add Twilio Video WebRTC pod pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
+```
+6. Rebuild your native apps (See Native build section below)
+7.  Run Responsive demo application
+   - Login as `demo_user` to join a Video Room: `TwilioVideo/_Demo/Responsive/VideoRoom/Pages/VideoRoom_Web`
+8. Run Native demo application to join a Video Room: `TwilioVideo/_Demo/Native/VideoRoom/Pages/Home_Native`
+
+## Native build
+The App Github repo now includes a pre-configured nativeTemplate [../resources/nativeTemplate](https://github.com/Entidad/farmworker-wallet-os-video/tree/main/resources/nativeTemplate) to fast-track demo activities.
+1. Clone Github repo
+2. Install npm packages
+```
+cd resources/nativeTemplate/
+nvm use 20
+npm i --legacy-peer-deps
+npm run configure
+```
+3. Edit iOS Podfile
+```
+# Add Twilio Video WebRTC pod pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
+```
+4. If you have trouble distributing to Apple Test Flight due to a bitcode issue, edit iOS Podfile
+```
+bitcode_strip_path = `xcrun --find bitcode_strip`.chop!
+    def strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
+      framework_path = File.join(Dir.pwd, framework_relative_path)
+      command = "#{bitcode_strip_path} #{framework_path} -r -o #{framework_path}"
+      puts "Stripping bitcode: #{command}"
+      system(command)
+    end
+
+    framework_paths = [
+      "Pods/TwilioVideo/TwilioVideo.xcframework/ios-arm64_armv7/TwilioVideo.framework/TwilioVideo"
+    ]
+
+    framework_paths.each do |framework_relative_path|
+      strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
+    end
+```
+5. Install iOS pods
+```
+cd ios
+pod install --repo-update
+```
 
 ## Known bugs [optional]
 To report bugs, submit an issue report on our [Github repo](https://github.com/Entidad/farmworker-wallet-os-video/issues)
