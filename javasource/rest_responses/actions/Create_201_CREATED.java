@@ -10,6 +10,7 @@
 package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.webui.CustomJavaAction;
 import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.UserAction;
@@ -45,10 +46,10 @@ public class Create_201_CREATED extends UserAction<IMendixObject>
 	{
 		// BEGIN USER CODE
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, 201, this.Content, "Created");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(),this.HTTPResponse, 201, this.Content, "Created");
 		
 		if( Location != null && "" != Location) {
-			rp.addHttpHeader("Location", this.Location);
+			rp.setOrOverrideHttpHeader("Location", this.Location);
 		}
 		
 		return rp.getResponse();		

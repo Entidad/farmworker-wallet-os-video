@@ -28,7 +28,7 @@ export async function JS_Recalculate_MendixModal_Error_PopUp_Zindex() {
 			htmlElement.forEach(item => item.style.zIndex = zIndexValue);
 
 		} catch(error) {
-			console.warn("Feedback Module JS_Recalculate_Modal_Zindex could not execute correctly", error);
+			console.warn("Feedback Module JS Action JS_Recalculate_Modal_Zindex could not execute correctly.", error);
 		}
 	};
 

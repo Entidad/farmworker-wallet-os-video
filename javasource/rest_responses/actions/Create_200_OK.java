@@ -10,6 +10,7 @@
 package rest_responses.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.webui.CustomJavaAction;
 import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.UserAction;
@@ -42,7 +43,7 @@ public class Create_200_OK extends UserAction<IMendixObject>
 	{
 		// BEGIN USER CODE
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse,  200, this.Content, "OK");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), this.HTTPResponse,  200, this.Content, "OK");
 
 		return rp.getResponse();
 		// END USER CODE

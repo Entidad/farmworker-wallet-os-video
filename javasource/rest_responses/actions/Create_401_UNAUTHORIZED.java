@@ -12,6 +12,7 @@ package rest_responses.actions;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import java.util.UUID;
@@ -55,8 +56,8 @@ public class Create_401_UNAUTHORIZED extends UserAction<IMendixObject>
 				this.Details, status, null, null, LogMessageDetails);
 		
 		
-		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), HTTPResponse, status, emp.getJSONResponseMessage(), "Unauthorized");
-		rp.addHttpHeader("WWW-Authenticate", this.WWWAuthenticate);
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), this.HTTPResponse, status, emp.getJSONResponseMessage(), "Unauthorized");
+		rp.setOrOverrideHttpHeader("WWW-Authenticate", this.WWWAuthenticate);
 		
 		return rp.getResponse();
 		// END USER CODE

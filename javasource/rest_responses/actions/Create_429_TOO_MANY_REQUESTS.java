@@ -12,6 +12,7 @@ package rest_responses.actions;
 import javax.servlet.http.HttpServletRequest;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.webui.CustomJavaAction;
 import rest_responses.ErrorMessageProvider;
 import rest_responses.RESTResponseProvider;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
@@ -54,7 +55,7 @@ public class Create_429_TOO_MANY_REQUESTS extends UserAction<IMendixObject>
 		
 		ErrorMessageProvider emp = new ErrorMessageProvider(getContext(), "Too Many Requests", servlet.getMethod() + " " + servlet.getPathInfo(), 429, null, null, LogMessageDetails);
 
-		RESTResponseProvider rp = new RESTResponseProvider(this.context(), HTTPResponse, 429, emp.getJSONResponseMessage(), "Too Many Requests");
+		RESTResponseProvider rp = new RESTResponseProvider(this.getContext(), this.HTTPResponse, 429, emp.getJSONResponseMessage(), "Too Many Requests");
 
 		return rp.getResponse();
 		// END USER CODE
