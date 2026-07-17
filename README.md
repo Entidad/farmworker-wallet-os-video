@@ -23,16 +23,16 @@ The adaptable app module includes:
 
 ## Dependencies
 1. [Twilio Access Token Generator v3.0.0](https://marketplace.mendix.com/link/component/242851) (by Entidad)
-2. Encryption v11.0.3 (The module does not explicitly provide production-ready microflows to manage the `twilioCredential` configuration entity but it is highly-advised that the Mendix developer solve for encryption of the Twilio API key secret before deploying their app)
-3. Native Mobile Resources v10.1.4
-4. Community Commons v11.3.0
-5. [REST Responses](https://marketplace.mendix.com/link/component/118687) by MxLabs v2.0.0
-6. [Native Keep Awake](https://marketplace.mendix.com/link/component/118878) by Aiden v2.1.0
-7. NPM package [react-native-twilio-video-webrtc](https://www.npmjs.com/package/react-native-twilio-video-webrtc) v3.1.0
+2. Encryption v11.1.1 (The module does not explicitly provide production-ready microflows to manage the `twilioCredential` configuration entity but it is highly-advised that the Mendix developer solve for encryption of the Twilio API key secret before deploying their app)
+3. Native Mobile Resources v12.2.1
+4. Community Commons v11.5.1
+5. [REST Responses](https://marketplace.mendix.com/link/component/118687) by MxLabs v2.1.0
+6. [Native Keep Awake](https://marketplace.mendix.com/link/component/118878) by Aiden v3.0.0
+7. NPM package [@twilio/video-react-native-sdk](https://github.com/twilio/react-native-twilio-video-webrtc) v3.5.0
 8. Mendix React-Native pluggable widget [mendix-react-native-twilio-video-webrtc](https://github.com/Entidad/mendix-react-native-twilio-video-webrtc)
 9. Mendix React pluggable widget [mendix-web-twilio-video-webrtc](https://github.com/Entidad/mendix-web-twilio-video-webrtc)
 10. Xcode 16.2
-11. Android Studio Ladybug Feature Drop | 2024.2.2
+11. Android Studio Quail 1 | 2026.1.1 Patch 2
    
 ## Installation
 1. Download module and run app locally in Mendix Studio Pro. Default app is configured to run on `http://localhost:8085/`
@@ -50,7 +50,8 @@ npm install @twilio/video-react-native-sdk@3.5.0
 ```
 4. Edit Podfile for iOS distribution
 ```
-# Add Twilio Video WebRTC pod pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
+# Add Twilio Video WebRTC pod   
+pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
 ```
 6. Rebuild your native apps (See Native build section below)
 7.  Run Responsive demo application
