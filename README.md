@@ -44,19 +44,12 @@ The adaptable app module includes:
 2. Configure twilioCredential to store Twilio API secrets securely in Mendix database
    - Login as `demo_administrator` user to access the responsive Administration demo application: `TwilioVideo/_Demo/Responsive/Administration/Pages/TwilioVideoChat_Config`
    - Save your Twilio API screts
-3. Install npm package
-```
-npm install @twilio/video-react-native-sdk@3.5.0
-```
+3. Install npm packages
 4. Edit Podfile for iOS distribution
-```
-# Add Twilio Video WebRTC pod   
-pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
-```
-6. Rebuild your native apps (See Native build section below)
-7.  Run Responsive demo application
+5. Rebuild your native apps (See Native build section below)
+6.  Run Responsive demo application
    - Login as `demo_user` to join a Video Room: `TwilioVideo/_Demo/Responsive/VideoRoom/Pages/VideoRoom_Web`
-8. Run Native demo application to join a Video Room: `TwilioVideo/_Demo/Native/VideoRoom/Pages/Home_Native`
+7. Run Native demo application to join a Video Room: `TwilioVideo/_Demo/Native/VideoRoom/Pages/Home_Native`
 
 ## Native build
 The App Github repo now includes a pre-configured nativeTemplate [../resources/nativeTemplate](https://github.com/Entidad/farmworker-wallet-os-video/tree/main/resources/nativeTemplate) to fast-track demo activities.
@@ -71,8 +64,8 @@ npm run configure
 ```
 3. Edit iOS Podfile
 ```
-# Add Twilio Video WebRTC pod 
-pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
+# Add Twilio Video WebRTC pod   
+pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
 ```
 4. If you have trouble distributing to Apple Test Flight due to a bitcode issue, edit iOS Podfile
 ```
