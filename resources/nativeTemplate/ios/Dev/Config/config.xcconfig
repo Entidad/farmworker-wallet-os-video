@@ -1,7 +1,7 @@
 #include "../../Config/config.xcconfig"
 
 MAIN_STORY_BOARD = LaunchApp
-BUNDLE_DISPLAY_NAME = FWOS Video
+BUNDLE_DISPLAY_NAME = Dev-videoFWOS
 BUNDLE_IDENTIFIER_APPEND = .developerapp
 
-PRODUCT_NAME = FWOSVideoAppDev
+PRODUCT_NAME = videoFWOSAppDev

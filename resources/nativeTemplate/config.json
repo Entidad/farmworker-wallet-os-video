@@ -1,10 +1,10 @@
 {
     "configVersion": 2,
-    "appIdentifier": "io.entidad.app.fwosvideo",
-    "appName": "FWOS Video",
+    "appIdentifier": "io.entidad.app.fwos.video",
+    "appName": "videoFWOS",
     "bundleName": {
-        "main": "FWOSVideoApp",
-        "dev": "FWOSVideoAppDev"
+        "main": "videoFWOSApp",
+        "dev": "videoFWOSAppDev"
     },
     "deviceTarget": {
         "phone": true,
@@ -142,8 +142,8 @@
             "enabled": false
         }
     },
-    "appVersion": "1.1.0",
-    "buildNumber": 5,
+    "appVersion": "2.0.0",
+    "buildNumber": 6,
     "runtimeUrl": "http://localhost:8085",
     "hermesEnabled": true,
     "cookieEncryptionEnabled": false
