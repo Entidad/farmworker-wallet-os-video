@@ -24,6 +24,12 @@
       "name": "Switch",
       "version": "4.2.1",
       "appStoreVersionGuid": "94da68b6-dbe2-4970-9a20-8401367a74e6"
+    },
+    {
+      "sha-256": "aabfd843a94326848652c3f1b5a2b2198cf94436953935b84741253bcd3dcc00",
+      "name": "Native Keep Awake",
+      "version": "3.0.0",
+      "appStoreVersionGuid": "c4bfcb5e-9b7e-4720-8582-1c6948ca4bc6"
     }
   ]
 }
