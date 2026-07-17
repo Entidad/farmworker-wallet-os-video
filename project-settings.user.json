@@ -16,7 +16,7 @@
       "type": "Mendix.Modeler.MxAssist.PerformanceBot.Serialization.Configuration.PerformanceBotConfiguration, Mendix.Modeler.MxAssist.PerformanceBot.Serialization, Version=11.12.1.0, Culture=neutral, PublicKeyToken=null"
     },
     {
-      "hasShownNotificationForThisApp": false,
+      "hasShownNotificationForThisApp": true,
       "type": "Mendix.Modeler.WebUI.Deployment.Web.Packager.BundlerNotificationConfiguration, Mendix.Modeler.WebUI, Version=11.12.1.0, Culture=neutral, PublicKeyToken=null"
     }
   ]
