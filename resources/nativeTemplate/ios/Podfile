@@ -76,6 +76,8 @@ def common_pods
   pod 'SSZipArchive'
   pod 'RNCAsyncStorage', :path=> "../node_modules/@react-native-async-storage/async-storage", :modular_headers => true
   # REQUIRED PODS END
+# Add Twilio Video WebRTC pod   
+pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
 end
 
 target 'nativeTemplate' do
@@ -146,4 +148,20 @@ post_install do |installer|
 
     end
   end
+
+  bitcode_strip_path = `xcrun --find bitcode_strip`.chop!
+    def strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
+      framework_path = File.join(Dir.pwd, framework_relative_path)
+      command = "#{bitcode_strip_path} #{framework_path} -r -o #{framework_path}"
+      puts "Stripping bitcode: #{command}"
+      system(command)
+    end
+
+    framework_paths = [
+      "Pods/TwilioVideo/TwilioVideo.xcframework/ios-arm64_armv7/TwilioVideo.framework/TwilioVideo"
+    ]
+
+    framework_paths.each do |framework_relative_path|
+      strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
+    end
 end

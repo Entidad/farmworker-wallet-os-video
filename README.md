@@ -46,7 +46,7 @@ The adaptable app module includes:
    - Save your Twilio API screts
 3. Install npm package
 ```
-npm install react-native-twilio-video-webrtc@3.1.0
+npm install @twilio/video-react-native-sdk@3.5.0
 ```
 4. Edit Podfile for iOS distribution
 ```
@@ -63,13 +63,15 @@ The App Github repo now includes a pre-configured nativeTemplate [../resources/n
 2. Install npm packages
 ```
 cd resources/nativeTemplate/
-nvm use 20
+nvm install 24
+nvm use 24
 npm i --legacy-peer-deps
 npm run configure
 ```
 3. Edit iOS Podfile
 ```
-# Add Twilio Video WebRTC pod pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
+# Add Twilio Video WebRTC pod 
+pod 'react-native-twilio-video-webrtc', path: '../node_modules/react-native-twilio-video-webrtc'
 ```
 4. If you have trouble distributing to Apple Test Flight due to a bitcode issue, edit iOS Podfile
 ```
