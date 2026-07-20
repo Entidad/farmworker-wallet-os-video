@@ -77,8 +77,9 @@ def common_pods
   pod 'SSZipArchive'
   pod 'RNCAsyncStorage', :path=> "../node_modules/@react-native-async-storage/async-storage", :modular_headers => true
   # REQUIRED PODS END
-# Add Twilio Video WebRTC pod   
-pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
+
+  # Add Twilio Video WebRTC pod   
+  pod 'twilio-video-react-native-sdk', path: '../node_modules/@twilio/video-react-native-sdk'  
 end
 
 target 'nativeTemplate' do
